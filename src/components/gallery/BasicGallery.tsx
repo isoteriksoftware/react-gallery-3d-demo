@@ -8,7 +8,7 @@ const BasicGallery = () => {
       <ImageItem src="https://picsum.photos/200/300" />
       {/* <ImageItem src="https://picsum.photos/200/300" crossOrigin="anonymous" /> */}
       <VideoItem
-        src="https://www.w3schools.com/html/mov_bbb.mp4"
+        src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
         crossOrigin="anonymous"
       />
     </DemoScene>
