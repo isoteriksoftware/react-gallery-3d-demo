@@ -9,6 +9,24 @@ export const useGallerySceneSettings = () => {
     innerRadiusPercent: { value: 0.99, min: 0.1, max: 0.99 },
   });
 
+  const environmentControls = useControls("Environment", {
+    preset: {
+      value: "sunset",
+      options: [
+        "city",
+        "dawn",
+        "night",
+        "sunset",
+        "warehouse",
+        "apartment",
+        "forest",
+        "lobby",
+        "park",
+        "studio",
+      ],
+    },
+  });
+
   const fogControls = useControls("Fog", {
     enableFog: true,
     fogColor: "#000000",
@@ -45,5 +63,6 @@ export const useGallerySceneSettings = () => {
     groundControls,
     orbitControls,
     galleryItemControls,
+    environmentControls,
   };
 };

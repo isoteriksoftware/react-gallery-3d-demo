@@ -8,7 +8,7 @@ function App() {
     <div className="relative w-screen h-screen">
       <main className="w-full h-full">{routes}</main>
 
-      <div className="absolute top-0 left-0 right-0 bottom-0 z-50">
+      <div className="absolute top-0 left-0 z-10 w-full">
         <Navigation />
       </div>
     </div>

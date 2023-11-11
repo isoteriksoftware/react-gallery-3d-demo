@@ -8,6 +8,10 @@ const Navigation = () => {
   const activeLinkStyle = "text-white bg-blue-600 rounded-md";
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   const Link = ({ to, text }: { to: string; text: string }) => {
     return (
       <NavLink
@@ -15,6 +19,7 @@ const Navigation = () => {
         className={({ isActive }) =>
           isActive ? `${baseLinkStyle} ${activeLinkStyle}` : baseLinkStyle
         }
+        onClick={closeMenu}
       >
         {text}
       </NavLink>
@@ -25,7 +30,6 @@ const Navigation = () => {
     <nav className="bg-gray-800 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center items-center py-3 relative">
-          {/* Hamburger Menu Button */}
           <button
             onClick={toggleMenu}
             className="text-gray-300 hover:text-white focus:outline-none sm:hidden z-20"
@@ -45,7 +49,6 @@ const Navigation = () => {
             </svg>
           </button>
 
-          {/* Navigation Links */}
           <div
             className={`absolute top-full left-0 right-0 bg-gray-800 sm:bg-transparent sm:relative transition-transform duration-500 ease-in-out z-10 ${
               isOpen

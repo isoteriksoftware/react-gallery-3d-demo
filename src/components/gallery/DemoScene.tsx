@@ -2,10 +2,16 @@ import React, { PropsWithChildren } from "react";
 import { Gallery, GalleryScene } from "react-gallery-3d";
 import { useGallerySceneSettings } from "../../common/hooks.ts";
 import { Stats } from "@react-three/drei";
+import { EnvironmentPresets } from "./types.ts";
 
 const DemoScene: React.FC<PropsWithChildren> = ({ children }) => {
-  const { groundControls, fogControls, orbitControls, galleryItemControls } =
-    useGallerySceneSettings();
+  const {
+    groundControls,
+    fogControls,
+    orbitControls,
+    galleryItemControls,
+    environmentControls,
+  } = useGallerySceneSettings();
 
   return (
     <GalleryScene
@@ -26,7 +32,7 @@ const DemoScene: React.FC<PropsWithChildren> = ({ children }) => {
         maxPolarAngle: Math.PI / 2 - 0.01,
       }}
       environment={{
-        preset: "city",
+        preset: environmentControls.preset as EnvironmentPresets,
       }}
     >
       {/* @ts-expect-error */}
