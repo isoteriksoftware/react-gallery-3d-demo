@@ -6,6 +6,7 @@ const BasicGallery = () => {
     <DemoScene>
       <SolidColorItem color="#ff0000" />
       <ImageItem src="https://picsum.photos/200/300" />
+      {/* <ImageItem src="https://picsum.photos/200/300" crossOrigin="anonymous" /> */}
       <VideoItem
         src="https://www.w3schools.com/html/mov_bbb.mp4"
         crossOrigin="anonymous"
