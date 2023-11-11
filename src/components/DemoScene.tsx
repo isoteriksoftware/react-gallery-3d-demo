@@ -9,7 +9,11 @@ const DemoScene: React.FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <GalleryScene
-      fogColor={fogControls.fogColor}
+      fog={{
+        color: fogControls.fogColor,
+        near: fogControls.near,
+        far: fogControls.far,
+      }}
       disableFog={!fogControls.enableFog}
       disableControls={!orbitControls.enableOrbitControls}
       orbitControls={{

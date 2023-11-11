@@ -1,9 +1,19 @@
 import { useControls } from "leva";
 
 export const useGallerySceneSettings = () => {
+  const galleryItemControls = useControls("Gallery Item", {
+    width: { value: 120, min: 10, max: 1000 },
+    height: { value: 50, min: 10, max: 1000 },
+    radialSegments: { value: 50, min: 8, max: 100 },
+    heightSegments: { value: 1, min: 1, max: 100 },
+    innerRadiusPercent: { value: 0.99, min: 0.1, max: 0.99 },
+  });
+
   const fogControls = useControls("Fog", {
     enableFog: true,
     fogColor: "#000000",
+    near: { value: 10, min: 0.1, max: 100 },
+    far: { value: 590, min: 1, max: 1000 },
   });
 
   const groundControls = useControls("Ground", {
@@ -28,14 +38,6 @@ export const useGallerySceneSettings = () => {
     enableDamping: true,
     dampingFactor: { value: 0.01, min: 0.001, max: 0.5 },
     autoRotateSpeed: { value: -1, min: -100, max: 100 },
-  });
-
-  const galleryItemControls = useControls("Gallery Item", {
-    width: { value: 120, min: 10, max: 1000 },
-    height: { value: 50, min: 10, max: 1000 },
-    radialSegments: { value: 50, min: 8, max: 100 },
-    heightSegments: { value: 1, min: 1, max: 100 },
-    innerRadiusPercent: { value: 0.99, min: 0, max: 1 },
   });
 
   return {
