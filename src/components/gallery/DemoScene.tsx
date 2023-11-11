@@ -1,8 +1,26 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useEffect } from "react";
 import { Gallery, GalleryScene } from "react-gallery-3d";
 import { useGallerySceneSettings } from "../../common/hooks.ts";
 import { Stats } from "@react-three/drei";
 import { EnvironmentPresets } from "./types.ts";
+import { useThree } from "@react-three/fiber";
+import { PerspectiveCamera } from "three";
+
+const CameraUpdate: React.FC<{
+  cameraControls: { fov: number; position: [number, number, number] };
+}> = ({ cameraControls }) => {
+  const { camera } = useThree();
+
+  useEffect(() => {
+    if (camera instanceof PerspectiveCamera) {
+      camera.fov = cameraControls.fov;
+      camera.position.set(...cameraControls.position);
+      camera.updateProjectionMatrix();
+    }
+  }, [camera, cameraControls]);
+
+  return null;
+};
 
 const DemoScene: React.FC<PropsWithChildren> = ({ children }) => {
   const {
@@ -11,6 +29,7 @@ const DemoScene: React.FC<PropsWithChildren> = ({ children }) => {
     orbitControls,
     galleryItemControls,
     environmentControls,
+    cameraControls,
   } = useGallerySceneSettings();
 
   return (
@@ -65,6 +84,7 @@ const DemoScene: React.FC<PropsWithChildren> = ({ children }) => {
       </Gallery>
 
       <Stats />
+      <CameraUpdate cameraControls={cameraControls} />
     </GalleryScene>
   );
 };

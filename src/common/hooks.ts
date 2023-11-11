@@ -27,6 +27,16 @@ export const useGallerySceneSettings = () => {
     },
   });
 
+  const cameraControls = useControls("Camera", {
+    fov: { value: 60, min: 1, max: 180 },
+    position: {
+      value: [0, 65, 164],
+      step: 1,
+      min: -1000,
+      max: 1000,
+    },
+  });
+
   const fogControls = useControls("Fog", {
     enableFog: true,
     fogColor: "#000000",
@@ -64,5 +74,6 @@ export const useGallerySceneSettings = () => {
     orbitControls,
     galleryItemControls,
     environmentControls,
+    cameraControls,
   };
 };
