@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import { Gallery, GalleryScene } from "react-gallery-3d";
-import { useGallerySceneSettings } from "../common/hooks.ts";
+import { useGallerySceneSettings } from "../../common/hooks.ts";
 import { Stats } from "@react-three/drei";
 
 const DemoScene: React.FC<PropsWithChildren> = ({ children }) => {

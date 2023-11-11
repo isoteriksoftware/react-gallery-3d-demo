@@ -1,8 +1,8 @@
 import { useRoutes } from "react-router-dom";
-import BasicGallery from "../components/BasicGallery";
-import ImageGallery from "../components/ImageGallery.tsx";
-import VideoGallery from "../components/VideoGallery.tsx";
-import MixedGallery from "../components/MixedGallery.tsx";
+import BasicGallery from "../components/gallery/BasicGallery.tsx";
+import ImageGallery from "../components/gallery/ImageGallery.tsx";
+import VideoGallery from "../components/gallery/VideoGallery.tsx";
+import MixedGallery from "../components/gallery/MixedGallery.tsx";
 
 export const useAppRoutes = () => {
   return useRoutes([
