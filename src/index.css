@@ -71,3 +71,19 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+#leva__root > * {
+  width: 350px !important;
+}
+
+@media (max-width: 768px) {
+  #leva__root > * {
+    width: 350px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #leva__root > * {
+    width: 70vw !important;
+  }
+}
