@@ -25,6 +25,9 @@ const DemoScene: React.FC<PropsWithChildren> = ({ children }) => {
         minPolarAngle: Math.PI / 2 - 0.5,
         maxPolarAngle: Math.PI / 2 - 0.01,
       }}
+      environment={{
+        preset: "city",
+      }}
     >
       {/* @ts-expect-error */}
       <Gallery

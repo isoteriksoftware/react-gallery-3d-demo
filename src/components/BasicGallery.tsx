@@ -1,5 +1,5 @@
 import { SolidColorItem } from "react-gallery-3d";
-import DemoScene from "../DemoScene.tsx";
+import DemoScene from "./DemoScene.tsx";
 
 const BasicGallery = () => {
   return (

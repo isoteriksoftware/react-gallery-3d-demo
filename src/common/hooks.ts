@@ -2,8 +2,8 @@ import { useControls } from "leva";
 
 export const useGallerySceneSettings = () => {
   const galleryItemControls = useControls("Gallery Item", {
-    width: { value: 120, min: 10, max: 1000 },
-    height: { value: 50, min: 10, max: 1000 },
+    width: { value: 150, min: 10, max: 1000 },
+    height: { value: 60, min: 10, max: 1000 },
     radialSegments: { value: 50, min: 8, max: 100 },
     heightSegments: { value: 1, min: 1, max: 100 },
     innerRadiusPercent: { value: 0.99, min: 0.1, max: 0.99 },
@@ -12,8 +12,8 @@ export const useGallerySceneSettings = () => {
   const fogControls = useControls("Fog", {
     enableFog: true,
     fogColor: "#000000",
-    near: { value: 10, min: 0.1, max: 100 },
-    far: { value: 590, min: 1, max: 1000 },
+    near: { value: 10, min: 0.1, max: 1000 },
+    far: { value: 520, min: 1, max: 1000 },
   });
 
   const groundControls = useControls("Ground", {
@@ -22,8 +22,8 @@ export const useGallerySceneSettings = () => {
     width: { value: 1000, min: 10, max: 1000 },
     height: { value: 1000, min: 10, max: 1000 },
     enableReflector: true,
-    mirror: { value: 0.5, min: 0, max: 1 },
-    resolution: { value: 1024, min: 0, max: 2048 },
+    mirror: { value: 0.95, min: 0, max: 1 },
+    resolution: { value: 2048, min: 0, max: 2048 },
     depthScale: { value: 1, min: 0.01, max: 1 },
     minDepthThreshold: { value: 0.4, min: 0.01, max: 1 },
     maxDepthThreshold: { value: 1, min: 0.01, max: 1 },
