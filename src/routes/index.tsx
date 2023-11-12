@@ -3,6 +3,7 @@ import BasicGallery from "../components/gallery/BasicGallery.tsx";
 import ImageGallery from "../components/gallery/ImageGallery.tsx";
 import VideoGallery from "../components/gallery/VideoGallery.tsx";
 import MixedGallery from "../components/gallery/MixedGallery.tsx";
+import CustomGallery from "../components/gallery/CustomGallery.tsx";
 
 export const useAppRoutes = () => {
   return useRoutes([
@@ -21,6 +22,10 @@ export const useAppRoutes = () => {
     {
       path: "/video",
       element: <VideoGallery />,
+    },
+    {
+      path: "/custom",
+      element: <CustomGallery />,
     },
   ]);
 };

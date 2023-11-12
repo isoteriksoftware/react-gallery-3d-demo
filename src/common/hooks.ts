@@ -11,7 +11,7 @@ export const useGallerySceneSettings = () => {
 
   const environmentControls = useControls("Environment", {
     preset: {
-      value: "sunset",
+      value: "city",
       options: [
         "city",
         "dawn",
@@ -25,6 +25,7 @@ export const useGallerySceneSettings = () => {
         "studio",
       ],
     },
+    enableEnvironment: true,
   });
 
   const cameraControls = useControls("Camera", {
@@ -68,6 +69,24 @@ export const useGallerySceneSettings = () => {
     autoRotateSpeed: { value: -1, min: -100, max: 100 },
   });
 
+  const ambientLightControls = useControls("Ambient Light", {
+    enableAmbientLight: true,
+    color: "#ffffff",
+    intensity: { value: 0.7, min: 0, max: 1 },
+  });
+
+  const directionalLightControls = useControls("Directional Light", {
+    enableDirectionalLight: true,
+    color: "#ffffff",
+    intensity: { value: 1, min: 0, max: 1 },
+    position: {
+      value: [-10, 40, 5],
+      step: 1,
+      min: -1000,
+      max: 1000,
+    },
+  });
+
   return {
     fogControls,
     groundControls,
@@ -75,5 +94,7 @@ export const useGallerySceneSettings = () => {
     galleryItemControls,
     environmentControls,
     cameraControls,
+    ambientLightControls,
+    directionalLightControls,
   };
 };

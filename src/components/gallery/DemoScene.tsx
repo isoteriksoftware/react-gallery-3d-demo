@@ -22,7 +22,11 @@ const CameraUpdate: React.FC<{
   return null;
 };
 
-const DemoScene: React.FC<PropsWithChildren> = ({ children }) => {
+const DemoScene: React.FC<
+  PropsWithChildren<{
+    sceneElements?: React.ReactNode;
+  }>
+> = ({ children, sceneElements }) => {
   const {
     groundControls,
     fogControls,
@@ -83,6 +87,7 @@ const DemoScene: React.FC<PropsWithChildren> = ({ children }) => {
         {children}
       </Gallery>
 
+      {sceneElements}
       <Stats />
       <CameraUpdate cameraControls={cameraControls} />
     </GalleryScene>

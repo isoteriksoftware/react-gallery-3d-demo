@@ -61,6 +61,7 @@ const Navigation = () => {
               <Link to={"/basic"} text={"Basic Gallery"} />
               <Link to={"/image"} text={"Image Gallery"} />
               <Link to={"/video"} text={"Video Gallery"} />
+              <Link to={"/custom"} text={"Custom Gallery"} />
             </div>
           </div>
         </div>
