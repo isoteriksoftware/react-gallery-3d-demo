@@ -12,6 +12,7 @@ import DemoScene from "./DemoScene.tsx";
 import SceneLights from "./SceneLights.tsx";
 import { Text } from "@react-three/drei";
 import PlaceOnItem from "../utils/PlaceOnItem.tsx";
+import Model from "../utils/Model.tsx";
 
 class ShinySolidMaterial implements GalleryItemMaterial {
   private readonly color: string;
@@ -125,13 +126,17 @@ const CustomGallery = () => {
           </Text>
         </PlaceOnItem>
       </VideoItem>
-      {...customItemMaterials.map((material, index) => (
-        <GalleryItem
-          key={index}
-          itemMaterial={material}
-          onInit={autoPlayOnInit}
-        />
-      ))}
+      <GalleryItem itemMaterial={customItemMaterials[0]}>
+        <PlaceOnItem offset={40} isOnGround>
+          <Model url="./models/belly-dancer.glb" />
+        </PlaceOnItem>
+      </GalleryItem>
+      <GalleryItem itemMaterial={customItemMaterials[1]} />
+      <GalleryItem
+        itemMaterial={customItemMaterials[2]}
+        onInit={autoPlayOnInit}
+      />
+      <GalleryItem itemMaterial={customItemMaterials[3]} />
     </DemoScene>
   );
 };
