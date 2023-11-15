@@ -1,5 +1,4 @@
 import {
-  SolidColorItem,
   VideoItem,
   GalleryItemMaterial,
   GalleryItem,
@@ -11,6 +10,8 @@ import { Material, MeshPhysicalMaterial, MeshStandardMaterial } from "three";
 import { useMemo } from "react";
 import DemoScene from "./DemoScene.tsx";
 import SceneLights from "./SceneLights.tsx";
+import { Text } from "@react-three/drei";
+import PlaceOnItem from "../utils/PlaceOnItem.tsx";
 
 class ShinySolidMaterial implements GalleryItemMaterial {
   private readonly color: string;
@@ -85,20 +86,16 @@ class ShinyVideoMaterial extends VideoItemMaterial {
 const CustomGallery = () => {
   const customItemMaterials = useMemo(() => {
     return [
-      new GlassySolidMaterial("./images/img4.jpg"),
+      new ShinySolidMaterial("red"),
+      new GlassySolidMaterial("./images/img2.jpg"),
+      new ShinyVideoMaterial("./videos/vid4.mp4"),
       new ShinySolidMaterial("green"),
-      new ShinyVideoMaterial("./videos/vid6.mp4"),
     ];
   }, []);
 
-  const makeWireframe = (material: MeshStandardMaterial) => {
-    material.wireframe = true;
-    material.needsUpdate = true;
-  };
-
   const makeTransparent = (
     material: MeshStandardMaterial,
-    opacity: number = 0.5,
+    opacity: number = 0.7,
   ) => {
     material.transparent = true;
     material.opacity = opacity;
@@ -107,7 +104,7 @@ const CustomGallery = () => {
 
   const autoPlayOnInit = ({ itemMaterial }: GalleryItemInitData) => {
     if (itemMaterial instanceof VideoItemMaterial) {
-      const video = itemMaterial.getVideo()!;
+      const video = (itemMaterial as VideoItemMaterial).getVideo()!;
       video.muted = true;
       video.loop = true;
       video.play();
@@ -116,18 +113,18 @@ const CustomGallery = () => {
 
   return (
     <DemoScene sceneElements={<SceneLights />}>
-      <SolidColorItem
-        color="red"
-        onInit={({ material }) =>
-          makeWireframe(material as MeshStandardMaterial)
-        }
-      />
       <VideoItem
-        src="./videos/vid3.mp4"
+        src="./videos/vid1.mp4"
         onInit={({ material }) =>
           makeTransparent(material as MeshStandardMaterial)
         }
-      />
+      >
+        <PlaceOnItem rotationY={180}>
+          <Text fontSize={6} color="white" textAlign="center">
+            TRANSPARENT VIDEO
+          </Text>
+        </PlaceOnItem>
+      </VideoItem>
       {...customItemMaterials.map((material, index) => (
         <GalleryItem
           key={index}
